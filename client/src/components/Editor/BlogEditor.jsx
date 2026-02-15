@@ -11,6 +11,7 @@ import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
 import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 import { LexicalErrorBoundary } from '@lexical/react/LexicalErrorBoundary';
+import { $getRoot, $createParagraphNode } from 'lexical';
 import { HeadingNode, QuoteNode } from '@lexical/rich-text';
 import { ListNode, ListItemNode } from '@lexical/list';
 import { ListPlugin } from '@lexical/react/LexicalListPlugin';
@@ -24,15 +25,24 @@ function LoadStatePlugin() {
     const activePostId = useEditorStore((s) => s.activePostId);
 
     useEffect(() => {
-        if (editorState && activePostId) {
-            try {
-                const state = editor.parseEditorState(JSON.stringify(editorState));
-                editor.setEditorState(state);
-            } catch (e) {
-                console.warn('Failed to load editor state:', e);
+        if (activePostId) {
+            if (editorState) {
+                try {
+                    const state = editor.parseEditorState(JSON.stringify(editorState));
+                    editor.setEditorState(state);
+                } catch (e) {
+                    console.warn('Failed to load editor state:', e);
+                }
+            } else {
+                // Reset to empty state for new/empty posts
+                editor.update(() => {
+                    const root = $getRoot();
+                    root.clear();
+                    root.append($createParagraphNode());
+                });
             }
         }
-    }, [activePostId]); // only reload when switching posts, not on every keystroke
+    }, [activePostId]); // only reload when switching posts
 
     return null;
 }
