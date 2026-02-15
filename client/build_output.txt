@@ -1,0 +1,57 @@
+﻿[36mvite v7.3.1 [32mbuilding client environment for production...[36m[39m
+transforming...
+node.exe : Found 1 
+warning while 
+optimizing generated 
+CSS:
+At C:\Program Files\n
+odejs\npx.ps1:29 
+char:3
++   & $NODE_EXE 
+$NPX_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (Found 1   
+  warning... gene    
+rated CSS::Strin    
+g) [], RemoteExc    
+eption
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+
+[2mΓöé   }[22m
+[2mΓöé }[22m
+[2mΓöé[22m @import 
+url('https://fonts.go
+ogleapis.com/css2?fam
+ily=Inter:wght@300;40
+0;500;600;700&display
+=swap');
+[2mΓöå[22m        
+[33m[2m^--[22m 
+@import rules must 
+precede all rules 
+aside from @charset 
+and @layer 
+statements[39m
+[2mΓöå[22m
+[2mΓöé :root {[22m
+[2mΓöé   
+--font-sans: 
+'Inter', 
+-apple-system, 
+BlinkMacSystemFont, 
+'Segoe UI', 
+sans-serif;[22m
+
+[32mΓ£ô[39m 126 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[22m[32mindex.html                 [39m[1m[2m  0.45 kB[22m[1m[22m[2m Γöé gzip:   0.29 kB[22m
+[2mdist/[22m[35massets/index-DH92RwyV.css  [39m[1m[2m 20.44 kB[22m[1m[22m[2m Γöé gzip:   4.94 kB[22m
+[2mdist/[22m[36massets/index-DwvmOYxs.js   [39m[1m[2m469.59 kB[22m[1m[22m[2m Γöé gzip: 151.90 kB[22m
+[32mΓ£ô built in 3.78s[39m
